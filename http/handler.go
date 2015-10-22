@@ -16,16 +16,16 @@ func Handler() http.Handler {
 func handleUser() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.Method {
-		case "GET":
+		case "GET": //handle HTTP.GET
 			handleUserGet(w, r)
-		case "PUT":
+		case "PUT": //handle HTTP.PUT
 			handleUserPut(w, r)
-		case "POST":
+		case "POST": //handle HTTP.POST
 			handleUserPost(w, r)
-		case "DELETE":
+		case "DELETE": //handle HTTP.DELETE
 			handleUserDelete(w, r)
 		default:
-			respondError(w, http.StatusOK, nil)
+			respondError(w, http.StatusMethodNotAllowed, nil)
 		}
 	})
 }
