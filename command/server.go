@@ -24,6 +24,7 @@ func (c *ServerCommand) Run(args []string) int {
 	server := &http.Server{}
 	server.Handler = clihttp.Handler()
 	server.Addr = *addr
+	c.Ui.Output("==> starting server")
 	go server.ListenAndServe()
 
 	c.Ui.Output("")
